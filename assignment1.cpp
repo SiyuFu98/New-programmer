@@ -1,6 +1,15 @@
 //combio
 #include <bits/stdc++.h>
 using namespace std;
+void reverseStr(string& str)
+{
+    int n = str.length();
+
+    // Swap character starting from two
+    // corners
+    for (int i = 0; i < n / 2; i++)
+        swap(str[i], str[n - i - 1]);
+}
 int main(){
     ifstream file("rna.txt");
     string rna;
@@ -18,7 +27,8 @@ int main(){
         else if(rna[i]=='c')
             rna[i]='g';
     }
-    cout << rna;
+    reverseStr(rna);
+    // cout << rna;
     for(int i=0; i<rna.length();i+=3){
         if(rna[i]=='u'&& rna[i+1]=='u'&& rna[i+2]=='u')
             cout<<'F';
